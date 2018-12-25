@@ -1,0 +1,30 @@
+PROGRAM loop
+BEGIN
+
+    STRING guess := "Guess a number: ";
+    STRING correct := "Correct!\n";
+    STRING wrong := "Wrong!\n";
+    STRING out1 := "It took you ";
+    STRING out2 := " guesses";
+
+    INT i,j,k;
+
+    FUNCTION INT main()
+    BEGIN
+        i := 17;
+        j := 0;
+        k := 0;
+        WHILE(i != j)
+            WRITE(guess);
+            READ(j);
+            IF (i = j)
+                WRITE(correct);
+            ELSE
+                WRITE(wrong);
+            ENDIF
+            k := k + 1;
+        ENDWHILE
+
+        WRITE (out1, k, out2);
+    END
+END

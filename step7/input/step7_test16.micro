@@ -1,0 +1,24 @@
+PROGRAM test
+BEGIN
+	STRING str := "test";
+	INT a,b,c,g,h,i,j,k,l,p,o,u,y;
+
+	FUNCTION INT main(INT a)
+	BEGIN
+        i := 10;
+        j := 10;
+    	b := 1;
+        WHILE( b <= (i - 1)) 
+        	a := 1;           
+            WHILE ( a <= (j - 1) )
+            	a := a + 1;
+            ENDWHILE
+            b := b + 1;
+        ENDWHILE
+
+        WRITE(a);
+
+    	RETURN a+b;
+	END
+END
+

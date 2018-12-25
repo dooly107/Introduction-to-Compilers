@@ -1,0 +1,84 @@
+
+
+;IR code
+;PUSH   
+;PUSHREGS   
+;JSR FUNC_main  
+;HALT   
+;LABEL FUNC_main  
+;LINK 1  
+;READF num  
+;STOREI 1 !T0 
+;STOREI !T0 !T1 
+;STOREI !T1 j 
+;STOREF num !T2 
+;STOREF !T2 approx 
+;STOREI 100 !T3 
+;STOREI !T3 !T4 
+;STOREI !T4 i 
+;LABEL WHILE_START_1  
+;STOREI 0 !T5 
+;EQI i !T5 WHILE_END_2
+;DIVF num approx !T6
+;ADDF approx !T6 !T7
+;STOREF 0.500000 !T9 
+;MULF !T9 !T7 !T8
+;STOREF !T8 !T10 
+;STOREF !T10 newapprox 
+;STOREF newapprox !T11 
+;STOREF !T11 approx 
+;STOREI 1 !T13 
+;SUBI i !T13 !T12
+;STOREI !T12 !T14 
+;STOREI !T14 i 
+;JUMP WHILE_START_1  
+;LABEL WHILE_END_2  
+;WRITEF approx  
+;WRITES eol  
+;RET   
+var i
+var j
+var newapprox
+var approx
+var num
+str eol "\n"
+push  
+jsr  FUNC_main
+sys halt
+label  FUNC_main
+link  1
+sys readr num 
+move 1 r0
+move r0 r1
+move r1 j
+move num r2
+move r2 approx
+move 100 r3
+move r3 r4
+move r4 i
+label  WHILE_START_1
+move 0 r5
+cmpi  i r5
+jeq  WHILE_END_2
+move num r6
+divr approx r6
+move approx r7
+addr r6 r7
+move 0.500000 r9
+move r9 r8
+mulr r7 r8
+move r8 r10
+move r10 newapprox
+move newapprox r11
+move r11 approx
+move 1 r13
+move i r12
+subi r13 r12
+move r12 r14
+move r14 i
+jmp  WHILE_START_1
+label  WHILE_END_2
+sys writer approx 
+sys writes eol 
+unlnk
+ret

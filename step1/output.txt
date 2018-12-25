@@ -1,0 +1,16 @@
+Commit ID tagged for submission: b66d2993b4e0c5719a4e5ba28afc38ca8e3d63c5
+Submission graded at: 2018-09-07 13:59:44
+
+rm lex.yy.cc
+rm: cannot remove `lex.yy.cc': No such file or directory
+make: *** [clean] Error 1
+flex myscanner.l
+g++ lex.yy.cc -ll -o compiler
+Testing.....fibonacci.micro
+Test Passed
+Testing.....loop.micro
+Test Passed
+Testing.....nested.micro
+Test Passed
+Testing.....sqrt.micro
+Test Passed

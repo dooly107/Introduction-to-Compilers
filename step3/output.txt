@@ -1,0 +1,42 @@
+Commit ID tagged for submission: c664a681ff2f07f3ecff15e39ddb64d83f0eb0ed
+Submission graded at: 2018-10-02 22:53:39
+
+rm -rf generated
+rm -rf build
+rm -f Micro
+mkdir -p generated
+mkdir -p build
+flex  -o generated/scanner.cpp src/scanner.ll
+bison -d -o generated/parser.cpp src/parser.yy
+g++ -std=c++0x -c -o build/parser.o generated/parser.cpp -g
+g++ -std=c++0x -c -o build/scanner.o generated/scanner.cpp -g
+g++ -std=c++0x -c -o build/main.o src/main.cpp -g
+g++ -std=c++0x -o Micro build/scanner.o build/parser.o build/main.o -g
+Testing.....test11.micro
+Test Passed
+Testing.....test13.micro
+Test Passed
+Testing.....test14.micro
+Test Passed
+Testing.....test16.micro
+Test Passed
+Testing.....test18.micro
+Test Passed
+Testing.....test19.micro
+Test Passed
+Testing.....test1.micro
+Test Passed
+Testing.....test20.micro
+Test Passed
+Testing.....test21.micro
+Test Passed
+Testing.....test22.micro
+Test Passed
+Testing.....test5.micro
+Test Passed
+Testing.....test6.micro
+Test Passed
+Testing.....test7.micro
+Test Passed
+Testing.....test8.micro
+Test Passed

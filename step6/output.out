@@ -1,0 +1,225 @@
+;IR code   
+;PUSH    
+;PUSHREGS    
+;JSR FUNC_main   
+;HALT    
+;LABEL FUNC_factorial   
+;LINK 2   
+;STOREI 1 !T0  
+;NEI $2 !T0 ELSE_1 
+;STOREI 1 !T2  
+;STOREI !T2 $7  
+;UNLINK    
+;RET    
+;JUMP END_IF_ELSE_2   
+;LABEL ELSE_1   
+;STOREI 1 !T3  
+;SUBI $2 !T3 !T4 
+;PUSH    
+;PUSHREGS    
+;PUSH !T4   
+;JSR FUNC_factorial   
+;POP    
+;POPREGS    
+;POP !T5   
+;STOREI !T5 $-2  
+;MULI $-2 $2 !T6 
+;STOREI !T6 $-1  
+;LABEL END_IF_ELSE_2   
+;STOREI $-1 !T8  
+;STOREI !T8 $7  
+;UNLINK    
+;RET    
+;UNLINK    
+;RET    
+;LABEL FUNC_main   
+;LINK 2   
+;WRITES input   
+;READI $-1   
+;STOREI 1 !T9  
+;NEI $-1 !T9 ELSE_3 
+;STOREI 1 !T11  
+;STOREI !T11 $-2  
+;JUMP END_IF_ELSE_4   
+;LABEL ELSE_3   
+;STOREI 1 !T13  
+;LEI $-1 !T13 ELSE_5 
+;PUSH    
+;PUSHREGS    
+;PUSH $-1   
+;JSR FUNC_factorial   
+;POP    
+;POPREGS    
+;POP !T15   
+;STOREI !T15 $-2  
+;JUMP END_IF_ELSE_6   
+;LABEL ELSE_5   
+;STOREI 0 !T16  
+;STOREI !T16 $-2  
+;LABEL END_IF_ELSE_6   
+;LABEL END_IF_ELSE_4   
+;WRITEI $-2   
+;WRITES eol   
+;STOREI 0 !T18  
+;STOREI !T18 $6  
+;UNLINK    
+;RET    
+;UNLINK    
+;RET    
+str input "Please enter an integer number: " 
+str eol "\n" 
+push    
+push r0  
+push r1  
+push r2  
+push r3  
+jsr  FUNC_main  
+sys halt   
+label  FUNC_factorial  
+link  2  
+move 1 r0 
+cmpi  $2 r0 
+jne  ELSE_1  
+move 1 r2 
+move r2 $7 
+unlnk   
+ret   
+jmp  END_IF_ELSE_2  
+label  ELSE_1  
+move 1 r3 
+move $2 r4 
+subi r3 r4 
+push    
+push r0  
+push r1  
+push r2  
+push r3  
+push  r4  
+jsr  FUNC_factorial  
+pop    
+pop r3  
+pop r2  
+pop r1  
+pop r0  
+pop  r5  
+move r5 $-2 
+move $-2 r6 
+muli $2 r6 
+move r6 $-1 
+label  END_IF_ELSE_2  
+move $-1 r8 
+move r8 $7 
+unlnk   
+ret   
+unlnk   
+ret   
+label  FUNC_main  
+link  2  
+sys writes input 
+sys readi $-1 
+move 1 r9 
+cmpi  $-1 r9 
+jne  ELSE_3  
+move 1 r11 
+move r11 $-2 
+jmp  END_IF_ELSE_4  
+label  ELSE_3  
+move 1 r13 
+cmpi  $-1 r13 
+jle  ELSE_5  
+push    
+push r0  
+push r1  
+push r2  
+push r3  
+push  $-1  
+jsr  FUNC_factorial  
+pop    
+pop r3  
+pop r2  
+pop r1  
+pop r0  
+pop  r15  
+move r15 $-2 
+jmp  END_IF_ELSE_6  
+label  ELSE_5  
+move 0 r16 
+move r16 $-2 
+label  END_IF_ELSE_6  
+label  END_IF_ELSE_4  
+sys writei $-2 
+sys writes eol 
+move 0 r18 
+move r18 $6 
+unlnk   
+ret   
+unlnk   
+ret   
+;IRcode
+;PUSH
+;PUSHREGS
+;JSRFUNC_main
+;HALT
+;LABELFUNC_factorial
+;LINK2
+;STOREI1!T0
+;NEI$2!T0ELSE_1
+;STOREI1!T2
+;STOREI!T2$7
+;UNLINK
+;RET
+;JUMPEND_IF_ELSE_2
+;LABELELSE_1
+;STOREI1!T3
+;SUBI$2!T3!T4
+;PUSH
+;PUSHREGS
+;PUSH!T4
+;JSRFUNC_factorial
+;POP
+;POPREGS
+;POP!T5
+;STOREI!T5$-2
+;MULI$-2$2!T6
+;STOREI!T6$-1
+;LABELEND_IF_ELSE_2
+;STOREI$-1!T8
+;STOREI!T8$7
+;UNLINK
+;RET
+;UNLINK
+;RET
+;LABELFUNC_main
+;LINK2
+;WRITESinput
+;READI$-1
+;STOREI1!T9
+;NEI$-1!T9ELSE_3
+;STOREI1!T11
+;STOREI!T11$-2
+;JUMPEND_IF_ELSE_4
+;LABELELSE_3
+;STOREI1!T13
+;LEI$-1!T13ELSE_5
+;PUSH
+;PUSHREGS
+;PUSH$-1
+;JSRFUNC_factorial
+;POP
+;POPREGS
+;POP!T15
+;STOREI!T15$-2
+;JUMPEND_IF_ELSE_6
+;LABELELSE_5
+;STOREI0!T16
+;STOREI!T16$-2
+;LABELEND_IF_ELSE_6
+;LABELEND_IF_ELSE_4
+;WRITEI$-2
+;WRITESeol
+;STOREI0!T18
+;STOREI!T18$6
+;UNLINK
+;RET
+;UNLINK
+;RET

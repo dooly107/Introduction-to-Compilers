@@ -1,0 +1,74 @@
+HERE
+HERE
+var a  
+var b  
+var c  
+var h  
+var j  
+var k  
+var x  
+var y  
+var z  
+push   
+push r0  
+push r1  
+push r2  
+push r3  
+jsr FUNC_main  
+sys halt   
+label FUNC_function1  
+link 0  
+move 45 r0 
+move 35 r1 
+move r1 r1 
+mulr r0 r1 
+unlnk   
+ret   
+unlnk   
+ret   
+label FUNC_function2  
+link 0  
+move 4 r0 
+move r0 $7 
+unlnk   
+ret   
+unlnk   
+ret   
+label FUNC_main  
+link 0  
+sys readi a 
+sys writei a 
+sys readi b 
+push   
+push r0  
+push r1  
+push r2  
+push r3  
+push a  
+jsr FUNC_function1  
+pop   
+pop r3  
+pop r2  
+pop r1  
+pop r0  
+pop r0  
+move r0 a 
+push   
+push r0  
+push r1  
+push r2  
+push r3  
+push b  
+jsr FUNC_function2  
+pop   
+pop r3  
+pop r2  
+pop r1  
+pop r0  
+pop r0  
+move r0 c 
+move a r0 
+addi b r0 
+move r0 c 
+unlnk   
+ret   

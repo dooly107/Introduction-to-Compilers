@@ -1,0 +1,3 @@
+#! /bin/bash
+
+./Micro $1 $2

@@ -1,0 +1,96 @@
+Commit ID tagged for submission: 436e8cc9b399d72aecda0b5690ab43b16bc8cf15
+Submission graded at: 2018-10-15 21:31:59
+
+rm -rf generated
+rm -rf build
+rm -f Micro
+mkdir -p generated
+mkdir -p build
+flex  -o generated/scanner.cpp src/scanner.ll
+bison -d -o generated/parser.cpp src/parser.yy
+g++ -std=c++0x -c -o build/parser.o generated/parser.cpp -g
+g++ -std=c++0x -c -o build/scanner.o generated/scanner.cpp -g
+g++ -std=c++0x -c -o build/main.o src/main.cpp -g
+g++ -std=c++0x -o Micro build/scanner.o build/parser.o build/main.o -g
+Testing..... test_mult.micro
+Key output:
+ 22
+19
+60
+
+
+Student output:
+ 22
+19
+60
+
+
+Testing..... test_complex.micro
+Key output:
+ 692
+920
+920
+3.55
+
+
+Student output:
+ 692
+920
+920
+3.55
+
+
+Testing..... test_combination.micro
+Key output:
+ 692920920
+
+Student output:
+ 692920920
+
+Testing..... test_expr.micro
+Key output:
+ 1
+2
+10
+20
+3
+30
+27
+-20
+218
+228
+268
+-10
+1
+3.14159
+2
+1.5708
+1.5708
+2
+4
+15.5277
+
+
+Student output:
+ 1
+2
+10
+20
+3
+30
+27
+-20
+218
+228
+268
+-10
+1
+3.14159
+2
+1.5708
+1.5708
+2
+4
+15.5277
+
+

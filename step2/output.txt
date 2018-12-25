@@ -1,0 +1,57 @@
+Commit ID tagged for submission: 4639a272bf4bcca33bd6937a47db8ca0eafdfd11
+Submission graded at: 2018-09-14 19:30:18
+
+rm -rf generated
+rm -rf build
+rm -f Micro
+mkdir -p generated
+mkdir -p build
+flex -o generated/scanner.cpp src/scanner.ll
+bison -d -o generated/parser.cpp src/parser.yy
+g++ -std=c++0x -c -o build/parser.o generated/parser.cpp -g
+g++ -std=c++0x -c -o build/scanner.o generated/scanner.cpp -g
+g++ -std=c++0x -c -o build/main.o src/main.cpp -g
+g++ -std=c++0x -o Micro build/scanner.o build/parser.o build/main.o -g
+/var/tmp/ece468-grader-environment/ece468-grader/repositories/468PROJECT-kims-club/grader_step2.sh: line 12: @rm: command not found
+Testing.....test10.micro
+Test Passed
+Testing.....test11.micro
+Test Passed
+Testing.....test12.micro
+Test Passed
+Testing.....test13.micro
+Test Passed
+Testing.....test14.micro
+Test Passed
+Testing.....test15.micro
+Test Passed
+Testing.....test16.micro
+Test Passed
+Testing.....test17.micro
+Test Passed
+Testing.....test18.micro
+Test Passed
+Testing.....test19.micro
+Test Passed
+Testing.....test1.micro
+Test Passed
+Testing.....test20.micro
+Test Passed
+Testing.....test21.micro
+Test Passed
+Testing.....test2.micro
+Test Passed
+Testing.....test3.micro
+Test Passed
+Testing.....test4.micro
+Test Passed
+Testing.....test5.micro
+Test Passed
+Testing.....test6.micro
+Test Passed
+Testing.....test7.micro
+Test Passed
+Testing.....test8.micro
+Test Passed
+Testing.....test9.micro
+Test Passed
