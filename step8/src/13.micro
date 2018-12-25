@@ -1,0 +1,27 @@
+PROGRAM test
+BEGIN
+	INT a,b,c,x,y,z,h,j,k;
+	FUNCTION INT printout (INT a,INT b,INT c)
+	BEGIN
+		WRITE (a);
+		WRITE (b);
+		WRITE (c);
+		RETURN 0;
+	END
+  	
+  	FUNCTION INT main()
+	BEGIN
+		READ(a,b,c);
+		j := 0;
+		IF (a = b)
+			h:=0;
+		ELSE
+			WHILE ( j <= 10 )
+			     a := j;
+			     j := j + 1;
+		    ENDWHILE
+		ENDIF
+		c := printout(a,b,j);
+		RETURN a+b;
+	END
+END

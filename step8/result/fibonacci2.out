@@ -1,0 +1,444 @@
+;*****IR Start Unoptimized*****
+;0>> PUSH
+;1>> PUSH
+;2>> PUSH
+;3>> PUSH
+;4>> PUSH
+;5>> JSR FUNC_id_main_L
+;6>> HALT
+;7>> LABEL FUNC_id_F_L
+;8>> LINK 3
+;9>> STOREI 2 !T0
+;10>> LE $2 !T0 IF_ELSE_L2
+;11>> STOREI 1 !T1
+;12>> SUBI $2 !T1 !T2
+;13>> PUSH
+;14>> PUSHREG
+;15>> PUSH !T2
+;16>> JSR FUNC_id_F_L
+;17>> POP
+;18>> POPREG
+;19>> POP !T3
+;20>> STOREI !T3 $-1
+;21>> STOREI 2 !T4
+;22>> SUBI $2 !T4 !T5
+;23>> PUSH
+;24>> PUSHREG
+;25>> PUSH !T5
+;26>> JSR FUNC_id_F_L
+;27>> POP
+;28>> POPREG
+;29>> POP !T6
+;30>> STOREI !T6 $-2
+;31>> ADDI $-1 $-2 !T7
+;32>> STOREI !T7 $7
+;33>> UNLINK
+;34>> RET
+;35>> JUMP IF_END_L2
+;36>> LABEL IF_ELSE_L2
+;37>> STOREI 0 !T8
+;38>> NE $2 !T8 IF_ELSE_L1
+;39>> STOREI 0 !T9
+;40>> STOREI !T9 $7
+;41>> UNLINK
+;42>> RET
+;43>> JUMP IF_END_L1
+;44>> LABEL IF_ELSE_L1
+;45>> STOREI 1 !T10
+;46>> NE $2 !T10 IF_ELSE_L0
+;47>> STOREI 1 !T11
+;48>> STOREI !T11 $7
+;49>> UNLINK
+;50>> RET
+;51>> JUMP IF_END_L0
+;52>> LABEL IF_ELSE_L0
+;53>> STOREI 1 !T12
+;54>> STOREI !T12 $7
+;55>> UNLINK
+;56>> RET
+;57>> LABEL IF_END_L0
+;58>> LABEL IF_END_L1
+;59>> LABEL IF_END_L2
+;60>> UNLINK
+;61>> RET
+;62>> LABEL FUNC_id_main_L
+;63>> LINK 4
+;64>> WRITES id_input
+;65>> READI $-2
+;66>> STOREI 0 !T13
+;67>> STOREI !T13 $-1
+;68>> LABEL FOR_START_L0
+;69>> EQ $-1 $-2 FOR_OUT_L0
+;70>> PUSH
+;71>> PUSHREG
+;72>> PUSH $-1
+;73>> JSR FUNC_id_F_L
+;74>> POP
+;75>> POPREG
+;76>> POP !T16
+;77>> STOREI !T16 $-3
+;78>> WRITEI $-1
+;79>> WRITES id_space
+;80>> WRITEI $-3
+;81>> WRITES id_eol
+;82>> LABEL FOR_INC_L0
+;83>> STOREI 1 !T14
+;84>> ADDI $-1 !T14 !T15
+;85>> STOREI !T15 $-1
+;86>> JUMP FOR_START_L0
+;87>> LABEL FOR_OUT_L0
+;88>> STOREI 0 !T17
+;89>> STOREI !T17 $6
+;90>> UNLINK
+;91>> RET
+;*****IR End Unoptimized*****
+;*****Start Tiny Code Unoptimized*****
+;str id_input "Please input an integer number: "
+;str id_space " "
+;str id_eol "\n"
+;push
+;push
+;push
+;push
+;push
+;jsr FUNC_id_main_L
+;sys halt
+;label FUNC_id_F_L
+;link 3
+;move 2 r0
+;move $2 r1
+;cmpi r1 r0
+;jle IF_ELSE_L2
+;move 1 r0
+;move $2 r1
+;move r1 r2
+;subi r0 r2
+;push
+;push r0
+;push r1
+;push r2
+;push r3
+;push r2
+;jsr FUNC_id_F_L
+;pop
+;pop r3
+;pop r2
+;pop r1
+;pop r0
+;pop r0
+;move r0 r2
+;move 2 r0
+;move r1 r3
+;subi r0 r3
+;push
+;push r0
+;push r1
+;push r2
+;push r3
+;push r3
+;jsr FUNC_id_F_L
+;pop
+;pop r3
+;pop r2
+;pop r1
+;pop r0
+;pop r0
+;move r0 r1
+;move r2 r0
+;addi r1 r0
+;move r0 $7
+;unlnk
+;ret
+;jmp IF_END_L2
+;label IF_ELSE_L2
+;move 0 r0
+;move $2 r1
+;cmpi r1 r0
+;jne IF_ELSE_L1
+;move 0 r0
+;move r0 $7
+;unlnk
+;ret
+;jmp IF_END_L1
+;label IF_ELSE_L1
+;move 1 r0
+;move $2 r1
+;cmpi r1 r0
+;jne IF_ELSE_L0
+;move 1 r0
+;move r0 $7
+;unlnk
+;ret
+;jmp IF_END_L0
+;label IF_ELSE_L0
+;move 1 r0
+;move r0 $7
+;unlnk
+;ret
+;label IF_END_L0
+;label IF_END_L1
+;label IF_END_L2
+;unlnk
+;ret
+;label FUNC_id_main_L
+;link 4
+;sys writes id_input
+;sys readi r0
+;move 0 r1
+;move r1 r2
+;move r0 $-2
+;move r2 $-1
+;label FOR_START_L0
+;move $-1 r0
+;move $-2 r1
+;cmpi r0 r1
+;jeq FOR_OUT_L0
+;push
+;push r0
+;push r1
+;push r2
+;push r3
+;push $-1
+;jsr FUNC_id_F_L
+;pop
+;pop r3
+;pop r2
+;pop r1
+;pop r0
+;pop r0
+;move r0 r1
+;sys writei $-1
+;sys writes id_space
+;sys writei r1
+;sys writes id_eol
+;label FOR_INC_L0
+;move 1 r0
+;move $-1 r1
+;move r1 r2
+;addi r0 r2
+;move r2 r0
+;move r0 $-1
+;jmp FOR_START_L0
+;label FOR_OUT_L0
+;move 0 r0
+;move r0 $6
+;unlnk
+;ret
+;*****End Tiny Code Unoptimized*****
+
+;*****IR Start Optimized*****
+;0>> PUSH
+;1>> PUSH
+;2>> PUSH
+;3>> PUSH
+;4>> PUSH
+;5>> JSR FUNC_id_main_L
+;6>> HALT
+;7>> LABEL FUNC_id_F_L
+;8>> LINK 3
+;9>> STOREI 2 !T0
+;10>> LE $2 !T0 IF_ELSE_L2
+;11>> STOREI 1 !T1
+;12>> SUBI $2 !T1 !T2
+;13>> PUSH
+;14>> PUSHREG
+;15>> PUSH !T2
+;16>> JSR FUNC_id_F_L
+;17>> POP
+;18>> POPREG
+;19>> POP !T3
+;20>> STOREI !T3 $-1
+;21>> STOREI 2 !T4
+;22>> SUBI $2 !T4 !T5
+;23>> PUSH
+;24>> PUSHREG
+;25>> PUSH !T5
+;26>> JSR FUNC_id_F_L
+;27>> POP
+;28>> POPREG
+;29>> POP !T6
+;30>> STOREI !T6 $-2
+;31>> ADDI $-1 $-2 !T7
+;32>> STOREI !T7 $7
+;33>> UNLINK
+;34>> RET
+;35>> JUMP IF_END_L2
+;36>> LABEL IF_ELSE_L2
+;37>> STOREI 0 !T8
+;38>> NE $2 !T8 IF_ELSE_L1
+;39>> STOREI 0 !T9
+;40>> STOREI !T9 $7
+;41>> UNLINK
+;42>> RET
+;43>> JUMP IF_END_L1
+;44>> LABEL IF_ELSE_L1
+;45>> STOREI 1 !T10
+;46>> NE $2 !T10 IF_ELSE_L0
+;47>> STOREI 1 !T11
+;48>> STOREI !T11 $7
+;49>> UNLINK
+;50>> RET
+;51>> JUMP IF_END_L0
+;52>> LABEL IF_ELSE_L0
+;53>> STOREI 1 !T12
+;54>> STOREI !T12 $7
+;55>> UNLINK
+;56>> RET
+;57>> LABEL IF_END_L0
+;58>> LABEL IF_END_L1
+;59>> LABEL IF_END_L2
+;60>> UNLINK
+;61>> RET
+;62>> LABEL FUNC_id_main_L
+;63>> LINK 4
+;64>> WRITES id_input
+;65>> READI $-2
+;66>> STOREI 0 !T13
+;67>> STOREI !T13 $-1
+;68>> LABEL FOR_START_L0
+;69>> EQ $-1 $-2 FOR_OUT_L0
+;70>> PUSH
+;71>> PUSHREG
+;72>> PUSH $-1
+;73>> JSR FUNC_id_F_L
+;74>> POP
+;75>> POPREG
+;76>> POP !T16
+;77>> STOREI !T16 $-3
+;78>> WRITEI $-1
+;79>> WRITES id_space
+;80>> WRITEI $-3
+;81>> WRITES id_eol
+;82>> LABEL FOR_INC_L0
+;83>> STOREI 1 !T14
+;84>> ADDI $-1 !T14 !T15
+;85>> STOREI !T15 $-1
+;86>> JUMP FOR_START_L0
+;87>> LABEL FOR_OUT_L0
+;88>> STOREI 0 !T17
+;89>> STOREI !T17 $6
+;90>> UNLINK
+;91>> RET
+;*****IR End Optimized*****
+;*****Start Tiny Code Optimized*****
+str id_input "Please input an integer number: "
+str id_space " "
+str id_eol "\n"
+push
+push
+push
+push
+push
+jsr FUNC_id_main_L
+sys halt
+label FUNC_id_F_L
+link 3
+move $2 r0
+move 2 r1
+cmpi r0 r1
+jle IF_ELSE_L2
+move $2 r0
+move r0 r1
+subi 1 r1
+push
+push r0
+push r1
+push r2
+push r3
+push r1
+jsr FUNC_id_F_L
+pop
+pop r3
+pop r2
+pop r1
+pop r0
+pop r1
+move r0 r2
+subi 2 r2
+push
+push r0
+push r1
+push r2
+push r3
+push r2
+jsr FUNC_id_F_L
+pop
+pop r3
+pop r2
+pop r1
+pop r0
+pop r0
+move r1 r2
+addi r0 r2
+move r2 $7
+unlnk
+ret
+jmp IF_END_L2
+label IF_ELSE_L2
+move $2 r0
+move 0 r1
+cmpi r0 r1
+jne IF_ELSE_L1
+move 0 $7
+unlnk
+ret
+jmp IF_END_L1
+label IF_ELSE_L1
+move $2 r0
+move 1 r1
+cmpi r0 r1
+jne IF_ELSE_L0
+move 1 $7
+unlnk
+ret
+jmp IF_END_L0
+label IF_ELSE_L0
+move 1 $7
+unlnk
+ret
+label IF_END_L0
+label IF_END_L1
+label IF_END_L2
+unlnk
+ret
+label FUNC_id_main_L
+link 4
+sys writes id_input
+sys readi r0
+move 0 r1
+move r0 $-2
+move r1 $-1
+label FOR_START_L0
+move $-1 r0
+move $-2 r1
+cmpi r0 r1
+jeq FOR_OUT_L0
+push
+push r0
+push r1
+push r2
+push r3
+push $-1
+jsr FUNC_id_F_L
+pop
+pop r3
+pop r2
+pop r1
+pop r0
+pop r0
+move r0 r1
+sys writei $-1
+sys writes id_space
+sys writei r1
+sys writes id_eol
+move $-1 r0
+move r0 r1
+addi 1 r1
+move r1 r0
+move r0 $-1
+jmp FOR_START_L0
+label FOR_OUT_L0
+move 0 $6
+unlnk
+ret
+;*****End Tiny Code Optimized*****

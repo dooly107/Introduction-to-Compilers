@@ -1,0 +1,29 @@
+{
+				insert_expr_list = 0;
+				buffer << ";PUSH" << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+				buffer << ";PUSHREGS" << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+				list <char*>::iterator it;
+				for (it=param_callExpr.begin(); it!=param_callExpr.end(); ++it) {
+					char ret_reg[10];
+					strcpy(ret_reg, find_fromList((*it)));
+					buffer << ";PUSH " << ret_reg << endl;
+					threeAC.push_back(buffer.str());
+					buffer.str("");
+				}
+				buffer << ";JSR_FUNC_" << $1 << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+				buffer << ";POP" << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+				buffer << ";POPREGS" << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+				buffer << ";POP !T" << to_string(reg_count++) << endl;
+				threeAC.push_back(buffer.str());
+				buffer.str("");
+			}

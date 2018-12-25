@@ -1,0 +1,152 @@
+
+
+;IR code
+;PUSH   
+;PUSHREGS   
+;JSR FUNC_main  
+;HALT   
+;LABEL FUNC_main  
+;LINK 1  
+;STOREI 1 !T0 
+;STOREI !T0 !T1 
+;STOREI !T1 b 
+;STOREI 1 !T2 
+;STOREI !T2 !T3 
+;STOREI !T3 a 
+;LABEL WHILE_START_1  
+;STOREI 120 !T4 
+;GTI a !T4 WHILE_END_2
+;STOREI 1 !T5 
+;NEI b !T5 ELSE_3
+;STOREI 1 !T7 
+;MULI !T7 a !T6
+;STOREI !T6 !T8 
+;STOREI !T8 g 
+;WRITEI g  
+;JUMP END_IF_ELSE4  
+;LABEL ELSE_3  
+;STOREI 2 !T9 
+;NEI b !T9 ELSE_5
+;STOREI 2 !T11 
+;MULI !T11 a !T10
+;STOREI !T10 !T12 
+;STOREI !T12 p 
+;WRITEI p  
+;JUMP END_IF_ELSE6  
+;LABEL ELSE_5  
+;STOREI 3 !T13 
+;NEI b !T13 ELSE_7
+;STOREI 3 !T15 
+;MULI !T15 a !T14
+;STOREI !T14 !T16 
+;STOREI !T16 k 
+;WRITEI k  
+;JUMP END_IF_ELSE8  
+;LABEL ELSE_7  
+;STOREI 4 !T17 
+;NEI b !T17 ELSE_9
+;STOREI 4 !T19 
+;MULI !T19 a !T18
+;STOREI !T18 !T20 
+;STOREI !T20 u 
+;WRITEI u  
+;JUMP END_IF_ELSE10  
+;LABEL ELSE_9  
+;LABEL END_IF_ELSE10  
+;LABEL END_IF_ELSE8  
+;LABEL END_IF_ELSE6  
+;LABEL END_IF_ELSE4  
+;STOREI 1 !T22 
+;ADDI b !T22 !T21
+;STOREI !T21 !T23 
+;STOREI !T23 b 
+;STOREI 20 !T25 
+;ADDI a !T25 !T24
+;STOREI !T24 !T26 
+;STOREI !T26 a 
+;JUMP WHILE_START_1  
+;LABEL WHILE_END_2  
+;RET   
+var a
+var b
+var k
+var g
+var p
+var u
+push  
+jsr  FUNC_main
+sys halt
+label  FUNC_main
+link  1
+move 1 r0
+move r0 r1
+move r1 b
+move 1 r2
+move r2 r3
+move r3 a
+label  WHILE_START_1
+move 120 r4
+cmpi  a r4
+jgt  WHILE_END_2
+move 1 r5
+cmpi  b r5
+jne  ELSE_3
+move 1 r7
+move r7 r6
+muli a r6
+move r6 r8
+move r8 g
+sys writei g 
+jmp  END_IF_ELSE4
+label  ELSE_3
+move 2 r9
+cmpi  b r9
+jne  ELSE_5
+move 2 r11
+move r11 r10
+muli a r10
+move r10 r12
+move r12 p
+sys writei p 
+jmp  END_IF_ELSE6
+label  ELSE_5
+move 3 r13
+cmpi  b r13
+jne  ELSE_7
+move 3 r15
+move r15 r14
+muli a r14
+move r14 r16
+move r16 k
+sys writei k 
+jmp  END_IF_ELSE8
+label  ELSE_7
+move 4 r17
+cmpi  b r17
+jne  ELSE_9
+move 4 r19
+move r19 r18
+muli a r18
+move r18 r20
+move r20 u
+sys writei u 
+jmp  END_IF_ELSE10
+label  ELSE_9
+label  END_IF_ELSE10
+label  END_IF_ELSE8
+label  END_IF_ELSE6
+label  END_IF_ELSE4
+move 1 r22
+move b r21
+addi r22 r21
+move r21 r23
+move r23 b
+move 20 r25
+move a r24
+addi r25 r24
+move r24 r26
+move r26 a
+jmp  WHILE_START_1
+label  WHILE_END_2
+unlnk
+ret
